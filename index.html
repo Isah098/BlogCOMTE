@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Informativo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f180cf;
+            color: #333;
+        }
+        .menu-principal {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+        .logo img {
+            max-width: 180px;
+            height: auto;
+        }
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            margin-left: 120px; /* Adiciona margem para mover o botão para a esquerda */
+        }
+        .menu {
+            display: flex;
+            align-items: center;
+        }
+        .menu button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .menu button:hover {
+            background-color: #0056b3;
+        }
+        .aluna {
+            text-align: center;
+            margin-top: 100px;
+            font-size: 24px;
+            font-weight: bold;
+
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            
+        }
+        .conteudo {
+            flex: 3;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+        .conteudo img, .conteudo video {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            
+        }
+        .blog-container, .video-container {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-left: 15px;
+
+        }
+        .blog-container h3, .video-container h3 {
+            margin: 0 0 10px;
+            
+        }
+        .blog-links, .video-links {
+            list-style-type: none;
+            padding: 0;
+            
+        }
+        .blog-links li, .video-links li {
+            margin: 5px 0;
+            
+        }
+        .blog-links a, .video-links a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .blog-links a:hover, .video-links a:hover {
+            text-decoration: underline;
+        }
+        .sobre-aluna {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-left: 30px;
+
+        }
+        .sobre-aluna img {
+            max-width: 150px; /* Define a largura máxima da imagem */
+            height: auto; /* Mantém a proporção da imagem */
+            border-radius: 10px; /* Adiciona bordas arredondadas à imagem */
+            margin-bottom: 15px; /* Espaço abaixo da imagem */
+        }
+        .blog-links li, .video-links li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-left: 0px;
+
+        }
+        .blog-links p, .video-links p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .rodape {
+            text-align: center; /* Centraliza o texto */
+        }
+        
+        .container-rodape {
+            display: flex;
+            flex-direction: column; /* Alinha os itens em coluna */
+            align-items: center; /* Centraliza os itens horizontalmente */
+        }
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 80px; /* Altura do menu */
+                left: 0;
+                background-color: white;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            .menu.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .container {
+                flex-direction: column;
+                width: 90%;
+                margin-left: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="menu-principal">
+        <div class="logo">
+            <a href="index.html"><img src="https://i.postimg.cc/ZKg612tN/colegio-augusto-comte.webp" alt="Logo Da escola"></a>
+        </div>
+        <button class="menu-toggle" id="clique" onclick="toggleMenu()">Menu</button>
+        <div class="menu" id="menu">
+            <button onclick="window.location.href='#'">Blog</button>
+            <button onclick="window.location.href='#'">Vídeos</button>
+            <button onclick="window.location.href='#'">Sobre a Aluna</button>
+            <button onclick="window.location.href='#'">Contato</button>
+        </div>
+    </header>
+    <div class="aluna">
+        <h4>Aluna Maria Isabela Oliveira</h4>
+    </div>
+    <main class="container">
+        <div class="conteudo">
+            <h2>Efeitos Colaterais de Drogas Psicotrópicas: Impacto a Longo Prazo e Estratégias de Gestão</h2>
+            <h4 id="Introdução">Introdução ao Tema</h4>
+            <p>Drogas psicotrópicas são medicamentos amplamente utilizados no tratamento de transtornos mentais, como depressão, ansiedade, esquizofrenia e transtorno bipolar. Essas substâncias atuam no sistema nervoso central, alterando processos químicos no cérebro para aliviar sintomas debilitantes e melhorar a qualidade de vida dos pacientes. Entre os tipos mais comuns de psicotrópicos estão os antidepressivos, antipsicóticos, ansiolíticos e estabilizadores de humor. Embora sejam essenciais no manejo de diversas condições, o uso prolongado dessas drogas pode acarretar efeitos colaterais significativos, especialmente a longo prazo.</p>
+            <video autoplay muted loop controls>
+                <source src="Design sem nome (2).mp4" type="video/mp4">
+            </video>
+            <p>__________________________________________________________________________________________________________________________________</p>
+            <h4 id="2">Efeitos Colaterais Comuns</h4>
+            <p>Os efeitos colaterais das drogas psicotrópicas podem ser divididos em duas categorias principais: a curto e a longo prazo. No curto prazo, os pacientes podem experimentar sonolência, ganho de peso, náusea, boca seca, entre outros sintomas. Esses efeitos geralmente são mais leves e tendem a diminuir à medida que o organismo se ajusta à medicação. No entanto, os efeitos a longo prazo podem ser mais graves e persistentes, exigindo atenção e estratégias específicas para seu manejo.
+    
+                Entre os efeitos colaterais a longo prazo, a síndrome metabólica é uma das preocupações mais significativas, especialmente entre usuários de antipsicóticos de segunda geração. Essa condição engloba uma série de fatores de risco, como aumento da circunferência abdominal, resistência à insulina, hipertensão e dislipidemia, que podem culminar em doenças cardiovasculares e diabetes tipo 2. Outro efeito adverso grave é a discinesia tardia, caracterizada por movimentos involuntários que podem se manifestar após anos de uso de antipsicóticos, particularmente os de primeira geração. Esses movimentos, que afetam principalmente a face e os membros, podem ser irreversíveis, impactando profundamente a qualidade de vida dos pacientes.
+                
+                Além desses, os problemas cognitivos também são uma preocupação. Alguns antidepressivos e antipsicóticos podem levar a déficits cognitivos que afetam a memória, a concentração e a velocidade de processamento mental. Esses efeitos podem ser sutis, mas acumulativos, interferindo nas atividades diárias e no bem-estar geral do paciente. Por fim, o uso prolongado de ansiolíticos, como os benzodiazepínicos, pode resultar em dependência física e psicológica, tornando a descontinuação do medicamento um processo desafiador e frequentemente associado a sintomas de abstinência.</p>
+            <p>__________________________________________________________________________________________________________________________________</p>
+            <h4 id="3">Estudos e Pesquisas</h4>
+            <p>A pesquisa científica sobre os efeitos colaterais a longo prazo das drogas psicotrópicas é vasta e inclui resultados de estudos clínicos e metanálises. Estudos têm demonstrado que os efeitos adversos variam significativamente entre diferentes classes de medicamentos e entre indivíduos. O impacto dessas drogas nos sistemas corporais, como o cérebro, o coração e o metabolismo, tem sido amplamente investigado para entender melhor os mecanismos subjacentes aos efeitos colaterais e desenvolver estratégias de mitigação mais eficazes. Metanálises que agregam dados de múltiplos estudos ajudam a identificar padrões comuns e avaliar a magnitude dos riscos associados ao uso prolongado.</p>  
+            <video autoplay muted loop controls>
+                <source src="Design sem nome.mp4" type="video/mp4">
+               
+            </video>
+            <p>__________________________________________________________________________________________________________________________________</p>
+            <h4 id="4">Gestão dos Efeitos Colaterais</h4>
+            <p>Gerenciar os efeitos colaterais a longo prazo de drogas psicotrópicas requer uma abordagem multidisciplinar. O acompanhamento médico regular é fundamental para monitorar os efeitos colaterais e ajustar o tratamento conforme necessário. Isso pode incluir alterações na dosagem ou a troca de medicamentos por outros com perfis de efeitos colaterais mais favoráveis. Além disso, intervenções não farmacológicas, como a terapia cognitivo-comportamental, podem ser valiosas para reduzir a necessidade de medicamentos ou para ajudar os pacientes a lidar com os efeitos adversos. Mudanças no estilo de vida, como uma dieta balanceada e a prática regular de exercícios, também desempenham um papel crucial na mitigação de alguns dos efeitos colaterais.</p>
+            <p>__________________________________________________________________________________________________________________________________</p>
+            <h4 id="5">Testemunhos e Casos Reais</h4>
+            <p>Histórias de pacientes sobre o impacto dos efeitos colaterais e como eles foram geridos fornecem uma visão pessoal e prática das experiências individuais. Esses testemunhos podem ilustrar como os efeitos colaterais afetam a vida cotidiana e destacar estratégias que foram eficazes para diferentes pessoas. Compartilhar essas experiências pode oferecer suporte emocional e inspiração para outros que enfrentam desafios semelhantes.</p>
+            <p>__________________________________________________________________________________________________________________________________</p>
+            <h4 id="6">Recursos e Apoio</h4>
+            <p>Informar pacientes e suas famílias sobre os recursos disponíveis é essencial para uma gestão eficaz dos efeitos colaterais. Grupos de apoio e fóruns online oferecem um espaço para compartilhar experiências e estratégias de enfrentamento. Organizações especializadas e recursos educacionais online podem fornecer informações adicionais e suporte contínuo para ajudar os pacientes a lidar com os efeitos colaterais e melhorar sua qualidade de vida.</p>
+            <video autoplay muted loop controls>
+                <source src="Design sem nome (3).mp4" type="video/mp4">
+               
+            </video>
+            <p>__________________________________________________________________________________________________________________________________</p>
+            <h4>Conclusão</h4>
+            <p>Embora as drogas psicotrópicas sejam fundamentais no tratamento de transtornos mentais, é essencial estar atento aos seus efeitos colaterais a longo prazo. Com um acompanhamento médico adequado, ajustes no tratamento e um suporte abrangente, é possível gerenciar esses efeitos de forma eficaz, garantindo que os benefícios do tratamento superem os riscos e promovam uma melhor qualidade de vida para os pacientes.</p>
+        
+    
+            
+        </div>
+    </main>
+    <div class="blog-container">
+        <h3>Artigos do Blog</h3>
+        <ul class="blog-links">
+            <li>
+                <a href="https://hospitalsantamonica.com.br/efeitos-do-uso-da-maconha-entenda-as-consequencias-a-longo-prazo-do-uso-da-erva/">Artigo 1: Efeitos do uso da maconha: entenda as consequências a longo prazo do uso da erva</a>
+                <p>Qualquer elemento ingerido ou consumido pelo corpo humano afeta seu equilíbrio, de forma positiva ou negativa. Não é diferente quando analisamos os efeitos do uso de drogas no organismo. Entender os efeitos do uso da maconha e como essa substância afeta a saúde é essencial para influenciar escolhas em prol de um estilo de vida saudável.</p>
+            </li>
+            <li>
+                <a href="https://www.paho.org/pt/topicos/abuso-substancias">Artigo 2: Abuso de substâncias</a>
+                <p>Existem normas para o controle e fiscalização do uso dessas substâncias, seja para uso recreativo, como álcool ou tabaco; para uso farmacológico, como tranquilizantes opioides ou analgésicos, ou para uso geral, como solventes industriais. </p>
+            </li>
+            <li>
+                <a href="https://www.supera.org.br/wp-content/uploads/2021/04/SUP13_modulo2_reduzido.pdf">Artigo 3: Efeitos de substâncias psicoativas</a>
+                <p>Os mecanismos moleculares que se relacionam com os efeitos das drogas de abuso, a longo prazo, podem ser divididos em duas classes principais: as adaptações.</p>
+            </li>
+            <li>
+                <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwit4r2z6ouIAxUhrZUCHRulJoQQFnoECBgQAQ&url=https%3A%2F%2Fwww.tjmt.jus.br%2Fintranet.arq%2Fcms%2Fgrupopaginas%2F105%2F988%2FDrogas_psicotr%25C3%25B3picas.pdf&usg=AOvVaw20-zZQO8ia8VzNCQWVRPuS&opi=89978449">Artigo 4: DROGAS PSICOTRÓPICAS</a>
+                <p> Aumenta os efeitos depressores do SNC dos benzodiazepínicos, antidepressivos, antipsicóticos e opiáceos. 6. Impotência masculina – diminuição da síntese de </p>
+            </li>
+            <li>
+                <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwit4r2z6ouIAxUhrZUCHRulJoQQFnoECBkQAQ&url=https%3A%2F%2Fhospitalsantamonica.com.br%2Fconsequencias-das-drogas-entenda-o-real-perigo-do-uso-de-drogas%2F&usg=AOvVaw2IF-iZvkiZ-Oh7ZF5FZ-d0&opi=89978449">Artigo 4: Consequências das drogas: entenda o real perigo do uso </a>
+                <p>Entender os riscos e as consequências das drogas sobre a saúde mental e física é um dos aspectos mais importantes para conter os efeitos </p>
+            </li>
+            <li>
+                <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiXh9ml64uIAxVcr5UCHVl3MvEQFnoECBoQAw&url=https%3A%2F%2Fjandaiadosul.ufpr.br%2Fsubstancias-psicoativas%2F%23%3A~%3Atext%3DS%25C3%25A3o%2520subst%25C3%25A2ncias%2520que%2520agem%2520no%2Ccoca%25C3%25ADna%252C%2520crack%252C%2520maconha).&usg=AOvVaw1ffL6s3cgntQQM5QT9eveP&opi=89978449">Artigo 4: O que são substâncias psicoativas?</a>
+                <p>São substâncias que agem no cérebro, alterando as sensações, o estado emocional, o nível de consciência. Podem ser lícitas (álcool) ou ilícitas (cocaína, crack, maconha).</p>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="video-container">
+        <h3>Vídeos Relacionados</h3>
+        <ul class="video-links">
+            <li>
+                <iframe  src="https://www.youtube.com/embed/25uoclls9o8" frameborder="0" allowfullscreen></iframe>
+                <p>O efeito da maconha na cognição e psicologia, segundo estudos</p>
+            </li>
+            
+            <li>
+                <iframe src="https://www.youtube.com/embed/qeOWOt_SzJ4" frameborder="0" allowfullscreen></iframe>
+                <p>MEDICAMENTOS PSIQUIÁTRICOS: FAZEM BEM OU MAL?</p>
+            </li>
+            
+            <li>
+                <iframe src="https://www.youtube.com/embed/ke67JWW_XGE" frameborder="0" allowfullscreen></iframe>
+                <p>Efeitos e perigos do consumo de D.R.O.G.A.S sintéticas | Psicóloga Raquel Shimizu</p>
+            </li>
+s            
+            <li>
+                <iframe src="https://www.youtube.com/embed/ATXFXMYhn-o" frameborder="0" allowfullscreen></iframe>
+                <p>Transtornos mentais provocados pelo uso de substâncias psicoativas</p>
+            </li>
+            
+    </div>
+    <div class="sobre-aluna">
+        <h3>Sobre a Aluna</h3>
+        <img src="https://i.postimg.cc/gcKdJLYc/Captura-de-tela-2024-08-23-151211.png" alt="Maria Isabela Oliveira">
+        <p>Olá! Eu sou Maria Isabela Oliveira, a aluna responsável por criar e desenvolver este site. Tenho um grande interesse em saúde mental e educação, e me dedico a compartilhar informações importantes sobre os efeitos das drogas psicotrópicas e suas consequências. Este site reflete meu compromisso em promover a conscientização e o aprendizado, e espero que ele seja uma fonte valiosa de conhecimento para todos que buscam entender mais sobre este tema tão importante.</p>
+    </div>
+    <footer class="rodape">
+        <div class="container-rodape">
+            <p>&copy; 2024 Blog Informativo. Todos os direitos reservados.</p>
+            <div class="links-rodape">
+                <a href="#">Sobre Nós</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Serviço</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
